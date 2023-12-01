@@ -1,10 +1,10 @@
 {
     "root": true,
     "extends": [
-        "eslint:recommended"
+        "eslint:recommended",
         // Prettier rules must follow other plugins.
         // https://github.com/prettier/eslint-config-prettier#installation
-        // "prettier",
+        "prettier"
     ],
     // Sets globals that otherwise fail the `no-undef` rule by default
     "env": {
