@@ -1,4 +1,5 @@
 {
-    "*": ["prettier --write"],
+    "*.{11ty.js,ejs,haml,hbs,html,json,liquid,md,mustache,njk,pug,webc}": ["prettier --write"],
+    "*.css": ["stylelint --fix"],
     "*.js": ["eslint --fix"]
 }
