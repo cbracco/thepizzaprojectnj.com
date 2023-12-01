@@ -1,0 +1,20 @@
+{
+	"root": true,
+	"extends": [
+		"eslint:recommended"
+		// Prettier rules must follow other plugins.
+		// https://github.com/prettier/eslint-config-prettier#installation
+		// "prettier",
+	],
+	// Sets globals that otherwise fail the `no-undef` rule by default
+	"env": {
+		"browser": true,
+		"commonjs": true,
+		"es6": true,
+		"node": true
+	},
+	"parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+	}
+}
