@@ -1,0 +1,65 @@
+<header class="header text-center">
+    <a href="/" title="{{ metadata.title }}" class="logo">
+        {% image "../public/img/logo.svg", metadata.title %}
+    </a>
+
+    {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+    <nav class="nav">
+        <h2 class="visually-hidden">Top level navigation menu</h2>
+        <ul class="nav-list">
+            <li><a href="#about">About</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#subscribe">Subscribe</a></li>
+            <li><a href="#contact">Contact</a></li>
+        {# {%- for entry in collections.all | eleventyNavigation %}
+            <li class="nav-item"><a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a></li>
+        {%- endfor %} #}
+        </ul>
+    </nav>
+</header>
+
+<div class="marquees">
+    <div id="marquee1" class="marquee">
+        <div class="marquee-group">
+            <span>rustic breads + pizza pies +&nbsp;</span>
+            <span>rustic breads + pizza pies +&nbsp;</span>
+        </div>
+        <div class="marquee-group" aria-hidden="true">
+            <span>rustic breads + pizza pies +&nbsp;</span>
+            <span>rustic breads + pizza pies +&nbsp;</span>
+        </div>
+    </div>
+    <div id="marquee2" class="marquee">
+        <div class="marquee-group">
+            <span>rustic breads + pizza pies +&nbsp;</span>
+            <span>rustic breads + pizza pies +&nbsp;</span>
+        </div>
+        <div class="marquee-group" aria-hidden="true">
+            <span>rustic breads + pizza pies +&nbsp;</span>
+            <span>rustic breads + pizza pies +&nbsp;</span>
+        </div>
+    </div>
+    <div id="marquee3" class="marquee">
+        <div class="marquee-group">
+            <span>rustic breads + pizza pies +&nbsp;</span>
+            <span>rustic breads + pizza pies +&nbsp;</span>
+        </div>
+        <div class="marquee-group" aria-hidden="true">
+            <span>rustic breads + pizza pies +&nbsp;</span>
+            <span>rustic breads + pizza pies +&nbsp;</span>
+        </div>
+    </div>
+    <div id="marquee4" class="marquee">
+        <div class="marquee-group">
+            <span>rustic breads + pizza pies +&nbsp;</span>
+            <span>rustic breads + pizza pies +&nbsp;</span>
+        </div>
+        <div class="marquee-group" aria-hidden="true">
+            <span>rustic breads + pizza pies +&nbsp;</span>
+            <span>rustic breads + pizza pies +&nbsp;</span>
+        </div>
+    </div>
+    <div class="pizza-slice text-center">
+        {% image "../public/img/slice-pesto-white.png", "Pizza slice" %}
+    </div>
+</div>

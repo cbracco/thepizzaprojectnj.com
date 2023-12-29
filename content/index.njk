@@ -1,28 +1,43 @@
 ---
-layout: layouts/home.njk
-eleventyNavigation:
-  key: Home
-  order: 1
-numberOfLatestPostsToShow: 3
+layout: layouts/base.njk
 ---
-{% set postsCount = collections.posts | length %}
-{% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
-<h1>Latest {{ latestPostsCount }} Post{% if latestPostsCount != 1 %}s{% endif %}</h1>
 
-{% set postslist = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
-{% set postslistCounter = postsCount %}
-{% include "postslist.njk" %}
-
-{% set morePosts = postsCount - numberOfLatestPostsToShow %}
-{% if morePosts > 0 %}
-<p>{{ morePosts }} more post{% if morePosts != 1 %}s{% endif %} can be found in <a href="/blog/">the archive</a>.</p>
-{% endif %}
-
-{# List every content page in the project #}
-{#
-<ul>
-	{%- for entry in collections.all %}
-	<li><a href="{{ entry.url }}"><code>{{ entry.url }}</code></a></li>
-	{%- endfor %}
-</ul>
-#}
+<section id="about" class="section">
+    <div class="container text-center">
+        <h1>About</h1>
+        <p>My name is Chris and I bake small-batch rustic breads and pizza pies atop my miniature mountain in northern New Jersey, USA. What began as a humble hobby has evolved into a ridiculous dough obsession. </p>
+        <p>Right now I am honing my craft, <a href="https://instagram.com/braccobreadco">having fun online</a>, and experimenting with local pickups, pop-ups, and special events.</p>
+    </div>
+</section>
+<section id="events" class="section">
+    <div class="container text-center">
+        <h1>Events</h1>
+        <h2><a href="#!">Pizza Pop-Up!<br>Bar Pies at Aquila Pizza Al Forno</a></h2>
+        <p>
+            March 3, 2024<br>
+            3-5PM, 6-8PM
+        </p>
+        <a href="#!" class='button'>Reserve a Seat</a>
+    </div>
+</section>
+<div class="divider">
+    {% image "../public/img/pizzas.png", "Pizza pies" %}
+</div>
+<section id="subscribe" class="section">
+    <div class="container text-center">
+        <h1>Get on the list</h1>
+        <p>Be the first to know about future drops, pop-ups, events, and more.</p>
+        {% include "subscribe-form.njk" %}
+    </div>
+</section>
+<section id="contact" class="section">
+    <div class="container text-center">
+        <h1>Contact</h1>
+        <p>Want to try some bread or pizza? Host a pop-up or collaboration? I am open to fun and interesting opportunities.</p>
+        <p>Let’s talk!<br><a href="mailto:hello@braccobreadco.com">hello@braccobreadco.com</a></p>
+        <a href="https://instagram.com/braccobreadco">{% image "../public/img/instagram.svg", "Bracco Bread Co. on Instagram" %}</a>
+    </div>
+</section>
+<div class="divider">
+    {% image "../public/img/breads.png", "Loaves of bread" %}
+</div>

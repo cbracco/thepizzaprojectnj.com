@@ -8,4 +8,5 @@ module.exports = {
         email: 'youremailaddress@example.com',
         url: 'https://example.com/about-me/',
     },
+    isProd: process.env.NODE_ENV == 'production',
 };

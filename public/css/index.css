@@ -1,60 +1,378 @@
+/* Variables */
 :root {
-    /* Defaults */
-    --font-family: -apple-system, system-ui, sans-serif;
-    --font-family-monospace: consolas, menlo, monaco, andale mono wt, andale mono, lucida console,
-        lucida sans typewriter, dejavu sans mono, bitstream vera sans mono, liberation mono, nimbus mono l, courier new,
-        courier, monospace;
-
-    /* Theme colors */
-    --color-gray-20: #e0e0e0;
-    --color-gray-50: #c0c0c0;
-    --color-gray-90: #333;
-    --background-color: #fff;
-    --text-color: var(--color-gray-90);
-    --text-color-link: #082840;
-    --text-color-link-active: #5f2b48;
-    --text-color-link-visited: #17050f;
-    --syntax-tab-size: 2;
+    --beige-100: #FDF9ED;
+    --beige-200: #F3ECD9;
+    --beige-300: #E3DCCA;
+    --gold-100: #F2BA3E;
+    --black: #2E2A2A;
+    --red-100: #C2422C;
+    --font-family-1: opposit, sans-serif;
+    --font-family-2: anton, impact, sans-serif;
+    --letter-spacing-body-text: 0.03em;
+    --letter-spacing-headings: 0.06em;
+    --font-size-base: 1.25rem; /* 20 */
+    --font-size-h1: 3.25rem; /* 52 */
+    --font-size-h2: 2.25rem; /* 36 */
+    --font-size-marquee: 4.5rem; /* 72 */
+    --space-1: 0.75rem; /* 12 */
+    --space-2: 1.5rem; /* 24 */
+    --space-3: 2.25rem; /* 36 */
+    --space-4: 2.75rem; /* 44 */
+    --space-5: 4rem; /* 64 */
+    --space-6: 6.25rem; /* 100 */
+    --space-7: 9rem; /* 144 */
+    --container-width-1: 46.125rem; /* 738 */
+    --marquee-gap: 0.2rem;
 }
 
-/* Dark Mode */
-@media (prefers-color-scheme: dark) {
+/* Smooth Scrolling */
+@media (prefers-reduced-motion: no-preference) {
     :root {
-        --color-gray-20: #e0e0e0;
-        --color-gray-50: #c0c0c0;
-        --color-gray-90: #dad8d8;
-
-        /* --text-color is assigned to --color-gray-_ above */
-        --text-color-link: #1493fb;
-        --text-color-link-active: #6969f7;
-        --text-color-link-visited: #a6a6f8;
-        --background-color: #15202b;
+        scroll-behavior: smooth;
     }
 }
 
-/* Global stylesheet */
-* {
+/* Base */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
-html,
-body {
-    padding: 0;
-    margin: 0 auto;
-    font-family: var(--font-family);
-    color: var(--text-color);
-    background-color: var(--background-color);
-}
-
+/* Prevent font size inflation */
 html {
-    overflow-y: scroll;
+    text-size-adjust: none;
 }
 
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+}
+
+/* Set core body defaults */
 body {
-    max-width: 40em;
+    min-height: 100vh;
+    line-height: 1.5;
+    background: var(--beige-100);
+    font-family: var(--font-family-1);
+    font-size: var(--font-size-base);
+    letter-spacing: var(--letter-spacing-body-text);
+    margin: 0;
+    color: var(--black);
 }
 
-/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+    line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+    text-wrap: balance;
+    font-family: var(--font-family-2);
+    letter-spacing: var(--letter-spacing-headings);
+    text-transform: uppercase;
+    margin-bottom: var(--space-1);
+}
+
+h2 {
+    font-family: var(--font-family-1);
+    letter-spacing: var(--letter-spacing-body-text);
+    text-transform: none;
+}
+
+h2 a {
+    text-decoration: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+    color: var(--red-100);
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+    min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+    scroll-margin-block: 5ex;
+}
+
+p,
+ol,
+ul {
+    margin-top: 0;
+    margin-bottom: var(--space-2);
+}
+
+/* Webfonts */
+@font-face {
+    font-family: opposit;
+    src: url('/fonts/opposit-regular-webfont.woff2') format('woff2'), url('/fonts/opposit-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: opposit;
+    src: url('/fonts/opposit-extrabold-webfont.woff2') format('woff2'), url('/fonts/opposit-extrabold-webfont.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: anton;
+    src: url('/fonts/anton-regular-webfont.woff2') format('woff2'), url('/fonts/anton-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Buttons */
+.button {
+    display: inline-block;
+    padding: var(--space-1) var(--space-3);
+    font-family: var(--font-family-2);
+    letter-spacing: var(--letter-spacing-headings);
+    text-transform: uppercase;
+    background: var(--gold-100);
+    color: var(--black);
+    text-decoration: none;
+}
+
+/* Header */
+.header {
+    margin: var(--space-5) var(--space-2) 0;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--space-4);
+}
+
+/* Nav */
+.nav {
+    margin-bottom: var(--space-6);
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.nav-list a {
+    font-family: var(--font-family-2);
+    letter-spacing: var(--letter-spacing-headings);
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--black);
+}
+
+.nav-list a:hover {
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--gold-100);
+}
+
+/* 600 */
+@media only screen and (width >= 37.5rem) {
+    .nav-list {
+        gap: var(--space-4);
+    }
+}
+
+/* 1024 */
+@media only screen and (width >= 64rem) {
+    .nav {
+        margin-bottom: var(--space-7);
+    }
+}
+
+/* Marquees */
+.marquees {
+    position: relative;
+    margin-bottom: var(--space-7);
+}
+
+.marquee {
+    display: flex;
+    overflow: hidden;
+    gap: var(--marquee-gap);
+}
+
+.marquee-group {
+    display: flex;
+    flex-shrink: 0;
+    gap: var(--marquee-gap);
+    min-width: 100%;
+    animation: marquee-scroll 40s linear infinite;
+}
+
+.marquee-group span {
+    font-size: min(5vw, var(--font-size-marquee));
+    color: var(--beige-200);
+    letter-spacing: var(--letter-spacing-headings);
+}
+
+#marquee1 .marquee-group {
+    animation-duration: 40s;
+}
+
+#marquee2 {
+    margin-left: -15vw;
+}
+
+#marquee2 .marquee-group {
+    animation-duration: 34s;
+}
+
+#marquee3 {
+    margin-left: -7vw;
+}
+
+#marquee3 .marquee-group {
+    animation-duration: 42s;
+}
+
+#marquee4 {
+    margin-left: -17vw;
+}
+
+#marquee4 .marquee-group {
+    animation-duration: 26s;
+}
+
+@keyframes marquee-scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-100% - var(--marquee-gap)));
+    }
+}
+
+.pizza-slice {
+    position: absolute;
+    top: -18%;
+    bottom: 0;
+    margin: auto 0;
+    width: 100%;
+}
+
+.pizza-slice img {
+    max-width: min(50vw, 32.125rem);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 768 */
+@media only screen and (width >= 48rem) {
+    .pizza-slice {
+        top: -10%;
+    }
+
+    .pizza-slice img {
+        max-width: min(40vw, 32.125rem);
+    }
+}
+
+/* 1440 */
+@media only screen and (width >= 90rem) {
+    .pizza-slice {
+        top: -5%;
+    }
+}
+
+/* Sections */
+.section {
+    margin-bottom: var(--space-7);
+}
+
+.section h1 {
+    font-size: var(--font-size-h1);
+    margin-bottom: var(--space-4);
+}
+
+/* Dividers */
+.divider {
+    margin-bottom: var(--space-7);
+}
+
+.divider img {
+    width: 100%;
+}
+
+/* Subscribe Form */
+.subscribe-form {
+    display: flex;
+    justify-content: center;
+}
+
+/* Utilites */
+.text-center {
+    text-align: center;
+}
+
+.container {
+    max-width: var(--container-width-1);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 var(--space-2);
+}
+
 .visually-hidden {
     clip: rect(0 0 0 0);
     clip-path: inset(50%);
@@ -63,223 +381,4 @@ body {
     position: absolute;
     white-space: nowrap;
     width: 1px;
-}
-
-p {
-    line-height: 1.5;
-}
-
-p:last-child {
-    margin-bottom: 0;
-}
-
-li {
-    line-height: 1.5;
-}
-
-a[href] {
-    color: var(--text-color-link);
-}
-
-a[href]:visited {
-    color: var(--text-color-link-visited);
-}
-
-a[href]:hover,
-a[href]:active {
-    color: var(--text-color-link-active);
-}
-
-main {
-    padding: 1rem;
-}
-
-main :first-child {
-    margin-top: 0;
-}
-
-.links-nextprev {
-    list-style: none;
-    border-top: 1px dashed var(--color-gray-20);
-    padding: 1em 0;
-}
-
-table {
-    margin: 1em 0;
-}
-
-table td,
-table th {
-    padding-right: 1em;
-}
-
-pre,
-code {
-    font-family: var(--font-family-monospace);
-}
-
-pre:not([class*='language-']) {
-    margin: 0.5em 0;
-    line-height: 1.375; /* 22px /16 */
-    tab-size: var(--syntax-tab-size);
-    hyphens: none;
-    direction: ltr;
-    text-align: left;
-    white-space: pre;
-    word-spacing: normal;
-    word-break: normal;
-}
-
-code {
-    word-break: break-all;
-}
-
-/* Header */
-header {
-    display: flex;
-    gap: 1em 0.5em;
-    flex-wrap: wrap;
-    align-items: center;
-    padding: 1em;
-    border-bottom: 1px dashed var(--color-gray-20);
-}
-
-header::after {
-    content: '';
-    display: table;
-    clear: both;
-}
-
-.home-link {
-    font-size: 1em; /* 16px /16 */
-    font-weight: 700;
-    margin-right: 2em;
-}
-
-.home-link:link:not(:hover) {
-    text-decoration: none;
-}
-
-/* Nav */
-.nav {
-    display: flex;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-.nav-item {
-    display: inline-block;
-    margin-right: 1em;
-}
-
-.nav-item a[href]:not(:hover) {
-    text-decoration: none;
-}
-
-.nav a[href][aria-current='page'] {
-    text-decoration: underline;
-}
-
-/* Posts list */
-.postlist {
-    list-style: none;
-    padding: 0;
-    padding-left: 1.5rem;
-}
-
-.postlist-item {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    counter-increment: start-from -1;
-    margin-bottom: 1em;
-}
-
-.postlist-item::before {
-    display: inline-block;
-    pointer-events: none;
-    content: '' counter(start-from, decimal-leading-zero) '. ';
-    line-height: 100%;
-    text-align: right;
-    margin-left: -1.5rem;
-}
-
-.postlist-date,
-.postlist-item::before {
-    font-size: 0.8125em; /* 13px /16 */
-    color: var(--color-gray-90);
-}
-
-.postlist-date {
-    word-spacing: -0.5px;
-}
-
-.postlist-link {
-    font-size: 1.1875em; /* 19px /16 */
-    font-weight: 700;
-    flex-basis: calc(100% - 1.5rem);
-    padding-left: 0.25em;
-    padding-right: 0.5em;
-    text-underline-position: from-font;
-    text-underline-offset: 0;
-    text-decoration-thickness: 1px;
-}
-
-.postlist-item-active .postlist-link {
-    font-weight: bold;
-}
-
-/* Tags */
-.post-tag {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-transform: capitalize;
-    font-style: italic;
-}
-
-.postlist-item > .post-tag {
-    align-self: center;
-}
-
-/* Tags list */
-.post-metadata {
-    display: inline-flex;
-    flex-wrap: wrap;
-    gap: 0.5em;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.post-metadata time {
-    margin-right: 1em;
-}
-
-/* Direct Links / Markdown Headers */
-.header-anchor {
-    text-decoration: none;
-    font-style: normal;
-    font-size: 1em;
-    margin-left: 0.1em;
-}
-
-a[href].header-anchor,
-a[href].header-anchor:visited {
-    color: transparent;
-}
-
-a[href].header-anchor:focus,
-a[href].header-anchor:hover {
-    text-decoration: underline;
-}
-
-a[href].header-anchor:focus,
-:hover > a[href].header-anchor {
-    color: #aaa;
-}
-
-h2 + .header-anchor {
-    font-size: 1.5em;
 }
