@@ -13,14 +13,18 @@ layout: layouts/base.njk
     <div class="container text-center">
         <h1>Events</h1>
         {% for event in eventbrite.events %}
-            <h2><a href="{{ event.url }}" target="_blank" rel="noreferrer">{{ event.name.text }}</a></h2>
-            <p>
-                {{ event.start.utc | humanizeDate }}
-                <br>
-                Starts at {{ event.start.utc | humanizeTime }}
-            </p>
+            <div class="event">
+                <h2><a href="{{ event.url }}" target="_blank" rel="noreferrer">{{ event.name.text }}</a></h2>
+                <p>
+                    {{ event.start.utc | humanizeDate }}
+                    <br>
+                    {% for ticket_class in event.ticket_classes %}
+                        {{ ticket_class.name }}{% if not loop.last %},{% endif %}
+                    {% endfor %}
+                </p>
+                <a href="{{ event.url }}" target="_blank" rel="noreferrer" class="button">Reserve a Seat</a>
+            </div>
         {% endfor %}
-        <a href="{{ event.url }}" target="_blank" rel="noreferrer" class="button">Reserve a Seat</a>
     </div>
 </section>
 <div class="divider">

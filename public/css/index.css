@@ -173,7 +173,7 @@ ul {
     font-display: swap;
 }
 
-/* Buttons */
+/* Buttons @TODO :hover & :focus state */
 .button {
     display: inline-block;
     padding: var(--space-1) var(--space-3);
@@ -243,7 +243,7 @@ ul {
 /* Marquees */
 .marquees {
     position: relative;
-    margin-bottom: var(--space-7);
+    margin-bottom: var(--space-6);
 }
 
 .marquee {
@@ -257,7 +257,7 @@ ul {
     flex-shrink: 0;
     gap: var(--marquee-gap);
     min-width: 100%;
-    animation: marquee-scroll 40s linear infinite;
+    animation: marquee-scroll 80s linear infinite;
 }
 
 .marquee-group span {
@@ -267,7 +267,7 @@ ul {
 }
 
 #marquee1 .marquee-group {
-    animation-duration: 40s;
+    animation-duration: 80s;
 }
 
 #marquee2 {
@@ -275,7 +275,7 @@ ul {
 }
 
 #marquee2 .marquee-group {
-    animation-duration: 34s;
+    animation-duration: 64s;
 }
 
 #marquee3 {
@@ -283,7 +283,7 @@ ul {
 }
 
 #marquee3 .marquee-group {
-    animation-duration: 42s;
+    animation-duration: 72s;
 }
 
 #marquee4 {
@@ -291,7 +291,7 @@ ul {
 }
 
 #marquee4 .marquee-group {
-    animation-duration: 26s;
+    animation-duration: 56s;
 }
 
 @keyframes marquee-scroll {
@@ -353,6 +353,13 @@ ul {
 
 .divider img {
     width: 100%;
+}
+
+/* Events */
+.event:not(:last-child) {
+    border-bottom: 1px solid var(--beige-300);
+    padding-bottom: var(--space-4);
+    margin-bottom: var(--space-4);
 }
 
 /* Subscribe Form */
