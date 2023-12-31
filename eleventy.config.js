@@ -59,6 +59,18 @@ module.exports = function (eleventyConfig) {
         return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat('yyyy-LL-dd');
     });
 
+    // Format times from EventBrite API
+    eleventyConfig.addFilter("humanizeDate", (dateObj) => {
+        console.log(dateObj);
+        return DateTime.fromISO(dateObj).toLocaleString(DateTime.DATE_FULL); // October, 13, 2023
+    });
+
+    // Format times from EventBrite API
+    eleventyConfig.addFilter("humanizeTime", (dateObj) => {
+        console.log(dateObj);
+        return DateTime.fromISO(dateObj).toLocaleString(DateTime.TIME_SIMPLE); // 3PM
+    });
+
     // Customize Markdown library settings:
     eleventyConfig.amendLibrary('md', (mdLib) => {
         mdLib.use(markdownItAnchor, {

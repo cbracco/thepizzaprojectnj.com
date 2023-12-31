@@ -1,12 +1,15 @@
 module.exports = {
-    title: 'Eleventy Base Blog v8',
-    url: 'https://example.com/',
+    title: 'Bracco Bread Co.',
+    url: 'https://braccobreadco.com/',
     language: 'en',
-    description: 'I am writing about my experiences as a naval navel-gazer.',
+    description: 'Rustic breads and pizza pies homebaked in New Jersey by Chris Bracco. Currently doing local pickups, popups, and special events.',
     author: {
         name: 'Your Name Here',
         email: 'youremailaddress@example.com',
         url: 'https://example.com/about-me/',
+    },
+    social: {
+        instagram: "https://instagram.com/braccobreadco",
     },
     isProd: process.env.NODE_ENV == 'production',
 };
