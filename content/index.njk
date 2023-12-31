@@ -24,6 +24,8 @@ layout: layouts/base.njk
                 </p>
                 <a href="{{ event.url }}" target="_blank" rel="noreferrer" class="button">Reserve a Seat</a>
             </div>
+        {% else %}
+            There are no events scheduled at this time.
         {% endfor %}
     </div>
 </section>
