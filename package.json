@@ -1,10 +1,9 @@
 {
-    "name": "eleventy-base-blog",
-    "version": "8.0.0",
-    "description": "A starter repository for a blog web site using the Eleventy site generator.",
+    "name": "braccobreadco.com",
+    "version": "1.0.0",
+    "description": "The source code for the braccobreadco.com website.",
     "scripts": {
         "build": "npx @11ty/eleventy",
-        "build-ghpages": "npx @11ty/eleventy --pathprefix=/eleventy-base-blog/",
         "clean": "rimraf _site",
         "start": "npx @11ty/eleventy --serve --quiet",
         "debug": "DEBUG=Eleventy* npx @11ty/eleventy",
@@ -22,25 +21,21 @@
     },
     "repository": {
         "type": "git",
-        "url": "git://github.com/11ty/eleventy-base-blog.git"
+        "url": "git+https://github.com/cbracco/braccobreadco.com.git"
     },
     "author": {
-        "name": "Zach Leatherman",
-        "email": "zachleatherman@gmail.com",
-        "url": "https://zachleat.com/"
+        "name": "Chris Bracco",
+        "email": "chris@bracco.family",
+        "url": "https://chrisbracco.com/"
     },
     "license": "MIT",
     "engines": {
         "node": ">=14"
     },
-    "funding": {
-        "type": "opencollective",
-        "url": "https://opencollective.com/11ty"
-    },
     "bugs": {
-        "url": "https://github.com/11ty/eleventy-base-blog/issues"
+        "url": "https://github.com/cbracco/braccobreadco.com/issues"
     },
-    "homepage": "https://github.com/11ty/eleventy-base-blog#readme",
+    "homepage": "https://github.com/cbracco/braccobreadco.com#readme",
     "devDependencies": {
         "@11ty/eleventy": "^2.0.1",
         "@11ty/eleventy-img": "^3.1.1",

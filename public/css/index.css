@@ -3,7 +3,8 @@
     --beige-100: #FDF9ED;
     --beige-200: #F3ECD9;
     --beige-300: #E3DCCA;
-    --gold-100: #F2BA3E;
+    --gold-100: #F7C24E;
+    --gold-200: #F2BA3E;
     --black: #2E2A2A;
     --red-100: #C2422C;
     --font-family-1: opposit, sans-serif;
@@ -23,6 +24,7 @@
     --space-7: 9rem; /* 144 */
     --container-width-1: 46.125rem; /* 738 */
     --marquee-gap: 0.2rem;
+    --transition-1: all 0.3s ease;
 }
 
 /* Smooth Scrolling */
@@ -180,9 +182,15 @@ ul {
     font-family: var(--font-family-2);
     letter-spacing: var(--letter-spacing-headings);
     text-transform: uppercase;
-    background: var(--gold-100);
+    background: var(--gold-200);
     color: var(--black);
     text-decoration: none;
+    transition: var(--transition-1);
+}
+
+.button:hover,
+.button:focus {
+    background-color: var(--gold-100);
 }
 
 /* Header */
@@ -198,7 +206,7 @@ ul {
 
 /* Nav */
 .nav {
-    margin-bottom: var(--space-6);
+    margin-bottom: var(--space-5);
 }
 
 .nav-list {
@@ -223,7 +231,7 @@ ul {
     text-decoration: underline;
     text-decoration-style: wavy;
     text-decoration-thickness: 2px;
-    text-decoration-color: var(--gold-100);
+    text-decoration-color: var(--gold-200);
 }
 
 /* 600 */
@@ -233,8 +241,8 @@ ul {
     }
 }
 
-/* 1024 */
-@media only screen and (width >= 64rem) {
+/* 768 */
+@media only screen and (width >= 48rem) {
     .nav {
         margin-bottom: var(--space-7);
     }
@@ -243,7 +251,7 @@ ul {
 /* Marquees */
 .marquees {
     position: relative;
-    margin-bottom: var(--space-6);
+    margin-bottom: var(--space-5);
 }
 
 .marquee {
@@ -304,22 +312,32 @@ ul {
     }
 }
 
+/* 768 */
+@media only screen and (width >= 48rem) {
+    .marquees {
+        margin-bottom: var(--space-7);
+    }
+}
+
 .pizza-slice {
     position: absolute;
-    top: -18%;
+    top: 0;
     bottom: 0;
-    margin: auto 0;
     width: 100%;
+    height: 115%;
+    margin: auto 0;
 }
 
 .pizza-slice img {
-    max-width: min(50vw, 32.125rem);
+    /* max-width: min(50vw, 32.125rem); */
+    width: auto;
+    height: 100%;
     margin-left: auto;
     margin-right: auto;
 }
 
 /* 768 */
-@media only screen and (width >= 48rem) {
+/* @media only screen and (width >= 48rem) {
     .pizza-slice {
         top: -10%;
     }
@@ -327,14 +345,14 @@ ul {
     .pizza-slice img {
         max-width: min(40vw, 32.125rem);
     }
-}
+} */
 
 /* 1440 */
-@media only screen and (width >= 90rem) {
+/* @media only screen and (width >= 90rem) {
     .pizza-slice {
         top: -5%;
     }
-}
+} */
 
 /* Sections */
 .section {
