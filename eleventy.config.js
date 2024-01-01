@@ -8,13 +8,12 @@ const { EleventyHtmlBasePlugin } = require('@11ty/eleventy');
 
 const pluginImages = require('./eleventy.config.images.js');
 
-const tailwind = require('tailwindcss');
 const postCss = require('postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 
 const postcssFilter = (cssCode, done) => {
-    postCss([tailwind(require('./tailwind.config')), autoprefixer(), cssnano({ preset: 'default' })])
+    postCss([autoprefixer(), cssnano({ preset: 'default' })])
         .process(cssCode, {
             from: './public/css/index.css'
         })
