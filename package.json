@@ -45,6 +45,7 @@
         "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
         "autoprefixer": "^10.4.16",
         "cssnano": "^6.0.2",
+        "eleventy-auto-cache-buster": "^0.3.0",
         "husky": "^8.0.0",
         "lint-staged": "^15.1.0",
         "luxon": "^3.3.0",

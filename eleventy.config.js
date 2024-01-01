@@ -1,6 +1,6 @@
 const { DateTime } = require('luxon');
 const markdownItAnchor = require('markdown-it-anchor');
-
+const eleventyAutoCacheBuster = require("eleventy-auto-cache-buster");
 const pluginRss = require('@11ty/eleventy-plugin-rss');
 const pluginBundle = require('@11ty/eleventy-plugin-bundle');
 const pluginNavigation = require('@11ty/eleventy-navigation');
@@ -48,6 +48,9 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPlugin(pluginNavigation);
     eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
     eleventyConfig.addPlugin(pluginBundle);
+
+    // Unofficial plugins
+    eleventyConfig.addPlugin(eleventyAutoCacheBuster);
 
     // Add a collection for single-page navigation
     eleventyConfig.addCollection('sections', function(collectionApi) {
