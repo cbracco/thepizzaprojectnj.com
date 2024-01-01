@@ -11,5 +11,6 @@ module.exports = {
     social: {
         instagram: "https://instagram.com/braccobreadco",
     },
+    googleAnalytics: "G-PCVDQSREZ7",
     isProd: process.env.NODE_ENV == 'production',
 };
