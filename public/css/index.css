@@ -360,8 +360,16 @@ ul {
 }
 
 .section h1 {
-    font-size: var(--font-size-h1);
-    margin-bottom: var(--space-4);
+    font-size: var(--font-size-h2);
+    margin-bottom: var(--space-2);
+}
+
+/* 768 */
+@media only screen and (width >= 48rem) {
+    .section h1 {
+        font-size: var(--font-size-h1);
+        margin-bottom: var(--space-4);
+    }
 }
 
 /* Dividers */
