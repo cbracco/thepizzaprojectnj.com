@@ -1,34 +1,24 @@
-name: Build & Deploy
-
+name: Build & Deploy Website
 on:
-  push:
-    branches: ['main']
   workflow_dispatch:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: ['14.x']
-
+  build_deploy:
+    runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@main
+      - name: Build
+        uses: TartanLlama/actions-eleventy@master
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-
-      - name: Install packages
-        run: npm ci
-
-      - name: Run npm build
-        run: npm run build
-
-      - name: Deploy to gh-pages
+          install_dependencies: true
+      - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          deploy_key: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: _site
+          publish_branch: gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
