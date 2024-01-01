@@ -10,9 +10,9 @@ on:
 jobs:
   build-deploy:
     name: Eleventy Build
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: [ubuntu-latest]
         node: 18
     steps:
       - name: Use Node.js ${{ matrix.node-version }}
