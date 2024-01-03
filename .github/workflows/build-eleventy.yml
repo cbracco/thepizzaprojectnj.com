@@ -10,13 +10,11 @@ on:
 jobs:
   build_deploy:
     runs-on: ubuntu-22.04
+    env:
+      EVENTBRITE_API_KEY: ${{ secrets.EVENTBRITE_API_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@main
-      - name: Set env variables
-        uses: allenevans/set-env@v3.0.0
-        with:
-          EVENTBRITE_API_KEY: ${{ secrets.EVENTBRITE_API_KEY }}
       - name: Build
         uses: TartanLlama/actions-eleventy@master
         with:
