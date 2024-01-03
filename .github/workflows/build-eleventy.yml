@@ -3,7 +3,8 @@ name: Build & Deploy
 on:
   workflow_dispatch:
   push:
-    branches: [$default-branch]
+    branches:
+      - main
   schedule:
     - cron: '0 0 * * *'
 
