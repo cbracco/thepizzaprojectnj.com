@@ -13,6 +13,8 @@ jobs:
     env:
       EVENTBRITE_API_KEY: ${{ secrets.EVENTBRITE_API_KEY }}
     steps:
+      - name: Print eventbrite api key
+        run: echo "${{ secrets.EVENTBRITE_API_KEY }}"
       - uses: actions/checkout@main
       - name: Build
         uses: TartanLlama/actions-eleventy@master
