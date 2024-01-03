@@ -14,13 +14,8 @@ const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 
 const postcssFilter = (cssCode, done) => {
-    const plugins = [
-        require('autoprefixer')
-    ];
-    if (process.env.NODE_ENV === 'production') {
-        plugins.push(require('cssnano')({ preset: 'default' }));
-    }
-    postCss(plugins)
+    const plugins = []
+    postCss([autoprefixer(), cssnano({ preset: 'default' })])
         .process(cssCode, {
             from: './public/css/index.css'
         })
