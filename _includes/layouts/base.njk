@@ -14,8 +14,12 @@
 
         {% if metadata.isProd %}
             {# Inline CSS on production #}
-            {%- css %}{% include "public/css/index.css" %}{% endcss %}
-            <style>{% getBundle "css" %}</style>
+            {% set css %}
+            {% include "public/css/index.css" %}
+            {% endset %}
+            <style>{{ css | postcss | safe }}</style>
+            {# {%- css %}{% include "public/css/index.css" %}{% endcss %}
+            <style>{% getBundle "css" %}</style> #}
         {% else %}
             {# Reference external file in dev so hot reloading works #}
             <link rel="stylesheet" href="/css/index.css">
