@@ -3,29 +3,33 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - master
+      - main
   schedule:
     - cron: '0 0 * * *'
 
 jobs:
   build_deploy:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     env:
       EVENTBRITE_API_KEY: ${{ secrets.EVENTBRITE_API_KEY }}
     steps:
-      - name: Set Node.js version
+      - name: Checkout
+        uses: actions/checkout@main
+      - name: Use current Node.js
         uses: actions/setup-node@v4
         with:
             # Version Spec of the version to use in SemVer notation.
             # It also emits such aliases as lts, latest, nightly and canary builds
             # Examples: 12.x, 10.15.1, >=10.15.0, lts/Hydrogen, 16-nightly, latest, node
-            node-version: '18'
-      - name: Checkout
-        uses: actions/checkout@main
-      - name: Build
-        uses: TartanLlama/actions-eleventy@master
-        with:
-          install_dependencies: true
+            node-version: current
+        - name: Install dependencies and build
+          run: |
+            npm ci
+            npm run build
+    #   - name: Build
+    #     uses: TartanLlama/actions-eleventy@master
+    #     with:
+    #       install_dependencies: true
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
