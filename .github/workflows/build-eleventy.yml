@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
-      - uses: actions/checkout@main
+        uses: actions/checkout@main
       - name: Set env variables
         uses: allenevans/set-env@v3
         with:
