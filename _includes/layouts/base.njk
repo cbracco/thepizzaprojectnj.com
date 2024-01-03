@@ -19,10 +19,6 @@
         {% else %}
             {# Reference external file in dev so hot reloading works #}
             <link rel="stylesheet" href="/css/index.css">
-            {% set css %}
-            {% include "public/css/index.css" %}
-            {% endset %}
-            <style>{{ css | postcss | safe }}</style>
         {% endif %}
 
         {#-

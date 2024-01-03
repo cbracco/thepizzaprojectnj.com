@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "The source code for the braccobreadco.com website.",
     "scripts": {
-        "build": "npx @11ty/eleventy",
+        "build": "NODE_ENV=production npx @11ty/eleventy",
         "clean": "rimraf _site",
         "start": "npx @11ty/eleventy --serve --quiet",
         "debug": "DEBUG=Eleventy* npx @11ty/eleventy",
@@ -25,7 +25,7 @@
     },
     "author": {
         "name": "Chris Bracco",
-        "email": "chris@bracco.family",
+        "email": "work@chrisbracco.com",
         "url": "https://chrisbracco.com/"
     },
     "license": "MIT",
