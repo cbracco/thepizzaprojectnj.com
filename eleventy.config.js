@@ -1,3 +1,4 @@
+require('dotenv').config(); // Make env variables available in 11ty global data
 const { DateTime } = require('luxon');
 const markdownItAnchor = require('markdown-it-anchor');
 const eleventyAutoCacheBuster = require("eleventy-auto-cache-buster");

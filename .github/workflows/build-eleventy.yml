@@ -10,6 +10,8 @@ on:
 jobs:
   build_deploy:
     runs-on: ubuntu-22.04
+    env:
+      EVENTBRITE_API_KEY: ${{ secrets.EVENTBRITE_API_KEY }}
     steps:
       - uses: actions/checkout@main
       - name: Build
