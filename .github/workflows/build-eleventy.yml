@@ -10,13 +10,11 @@ on:
 jobs:
   build_deploy:
     runs-on: ubuntu-22.04
-    env:
-      EVENTBRITE_API_KEY: ${{ secrets.EVENTBRITE_API_KEY }}
     steps:
-      - name: Print eventbrite api key
-        run: echo "${{ secrets.EVENTBRITE_API_KEY }}"
       - uses: actions/checkout@main
       - name: Build
+        env:
+          EVENTBRITE_API_KEY: ${{ secrets.EVENTBRITE_API_KEY }}
         uses: TartanLlama/actions-eleventy@master
         with:
           install_dependencies: true
