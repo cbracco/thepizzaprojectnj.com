@@ -1,7 +1,7 @@
 require('dotenv').config(); // Make env variables available in 11ty global data
 const { DateTime } = require('luxon');
 const markdownItAnchor = require('markdown-it-anchor');
-const eleventyAutoCacheBuster = require("eleventy-auto-cache-buster");
+const eleventyAutoCacheBuster = require('eleventy-auto-cache-buster');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
 const pluginBundle = require('@11ty/eleventy-plugin-bundle');
 const pluginNavigation = require('@11ty/eleventy-navigation');
@@ -11,7 +11,7 @@ const pluginImages = require('./eleventy.config.images.js');
 
 const postcss = require('postcss');
 const postcssrc = require('postcss-load-config');
-const htmlmin = require("html-minifier");
+const htmlmin = require('html-minifier');
 
 module.exports = function (eleventyConfig) {
     // Copy static files to the output folder
@@ -31,7 +31,7 @@ module.exports = function (eleventyConfig) {
         let { plugins } = await postcssrc();
         console.log(plugins);
         let result = await postcss(plugins).process(content, {
-            from: './src/styles/index.css'
+            from: './src/styles/index.css',
         });
         callback(null, result.css);
     });
@@ -45,9 +45,9 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
     eleventyConfig.addPlugin(pluginBundle);
 
-    eleventyConfig.addTransform("htmlmin", function (content) {
+    eleventyConfig.addTransform('htmlmin', function (content) {
         // Prior to Eleventy 2.0: use this.outputPath instead
-        if (this.page.outputPath && this.page.outputPath.endsWith(".html")) {
+        if (this.page.outputPath && this.page.outputPath.endsWith('.html')) {
             let minified = htmlmin.minify(content, {
                 useShortDoctype: true,
                 removeComments: true,
@@ -63,26 +63,10 @@ module.exports = function (eleventyConfig) {
     // Unofficial plugins
     eleventyConfig.addPlugin(eleventyAutoCacheBuster);
 
-    // Add a collection for single-page navigation
-    eleventyConfig.addCollection('sections', function(collectionApi) {
-        return sections = collectionApi.getFilteredByGlob('src/sections/*.*');
-    });
-
-    eleventyConfig.addFilter('htmlDateString', (dateObj) => {
-        // dateObj input: https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-        return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat('yyyy-LL-dd');
-    });
-
     // Format times from EventBrite API
-    eleventyConfig.addFilter("humanizeDate", (dateObj) => {
+    eleventyConfig.addFilter('humanizeDate', (dateObj) => {
         console.log(dateObj);
         return DateTime.fromISO(dateObj).toLocaleString(DateTime.DATE_FULL); // October, 13, 2023
-    });
-
-    // Format times from EventBrite API
-    eleventyConfig.addFilter("humanizeTime", (dateObj) => {
-        console.log(dateObj);
-        return DateTime.fromISO(dateObj).toLocaleString(DateTime.TIME_SIMPLE); // 3PM
     });
 
     // Customize Markdown library settings:
@@ -109,7 +93,7 @@ module.exports = function (eleventyConfig) {
 
     // Revert back to browser-sync to get true hot reloading for CSS
     eleventyConfig.setServerOptions({
-        module: "@11ty/eleventy-server-browsersync",
+        module: '@11ty/eleventy-server-browsersync',
         files: ['_site/styles'],
     });
 

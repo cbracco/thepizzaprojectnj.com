@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-# @TODO fix
-# npx lint-staged --verbose --debug
+npx lint-staged

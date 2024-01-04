@@ -1,13 +1,13 @@
 /* Variables */
 :root {
-    --beige-100: #FDF9ED;
-    --beige-200: #F3ECD9;
-    --beige-300: #E3DCCA;
-    --gold-100: #F7C24E;
-    --gold-200: #F2BA3E;
-    --black: #2E2A2A;
-    --white: #FFFFFF;
-    --red-100: #C2422C;
+    --beige-100: #fdf9ed;
+    --beige-200: #f3ecd9;
+    --beige-300: #e3dcca;
+    --gold-100: #f7c24e;
+    --gold-200: #f2ba3e;
+    --black: #2e2a2a;
+    --white: #fff;
+    --red-100: #c2422c;
     --font-family-1: opposit, sans-serif;
     --font-family-2: anton, impact, sans-serif;
     --letter-spacing-body-text: 0.03em;

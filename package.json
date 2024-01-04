@@ -17,7 +17,7 @@
         "lint:scripts": "eslint --ext **/*.js",
         "lint": "run-s lint:*",
         "format:content": "prettier --write .",
-        "format:styles": "stylelint **/*.css --fix",
+        "format:styles": "stylelint src/styles/**/*.css --fix",
         "format:scripts": "eslint --ext **/*.js --fix",
         "format": "run-s format:*"
     },
@@ -51,6 +51,8 @@
         "cssnano": "^6.0.2",
         "dotenv": "^16.3.1",
         "eleventy-auto-cache-buster": "^0.3.0",
+        "eslint": "^8.56.0",
+        "eslint-config-prettier": "^9.1.0",
         "html-minifier": "^4.0.0",
         "husky": "^8.0.0",
         "lint-staged": "^15.1.0",
@@ -63,7 +65,6 @@
         "postcss-load-config": "^5.0.2",
         "postcss-preset-env": "^9.3.0",
         "prettier": "^3.1.0",
-        "prettier-plugin-twig-nunjucks-melody": "^0.1.0",
         "rimraf": "^5.0.5",
         "stylelint": "^15.11.0",
         "stylelint-config-standard": "^34.0.0"
