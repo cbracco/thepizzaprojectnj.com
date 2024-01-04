@@ -21,6 +21,10 @@
         "format:scripts": "eslint --ext **/*.js --fix",
         "format": "run-s format:*"
     },
+    "browserslist": [
+        "defaults and fully supports es6-module",
+        "maintained node versions"
+    ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/cbracco/braccobreadco.com.git"
@@ -47,7 +51,6 @@
         "@11ty/eleventy-plugin-rss": "^1.2.0",
         "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
         "@11ty/eleventy-server-browsersync": "^1.0.2",
-        "autoprefixer": "^10.4.16",
         "cssnano": "^6.0.2",
         "dotenv": "^16.3.1",
         "eleventy-auto-cache-buster": "^0.3.0",

@@ -1,14 +1,7 @@
 module.exports = ({ env }) => ({
     plugins: {
-        'postcss-preset-env': {},
         'postcss-import': {},
-        autoprefixer: {},
+        'postcss-preset-env': {},
         ...(env === 'production' && { cssnano: {} }),
     },
 });
-// module.exports = {
-//     plugins: [
-//         require('postcss-import'),
-//         require('autoprefixer'),
-//     ],
-// };
