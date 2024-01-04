@@ -1,0 +1,22 @@
+/* Section */
+
+.section {
+    margin-bottom: var(--space-6);
+}
+
+.section h1 {
+    font-size: var(--font-size-h2);
+    margin-bottom: var(--space-2);
+}
+
+/* 768 */
+@media only screen and (width >= 48rem) {
+    .section {
+        margin-bottom: var(--space-7);
+    }
+
+    .section h1 {
+        font-size: var(--font-size-h1);
+        margin-bottom: var(--space-4);
+    }
+}

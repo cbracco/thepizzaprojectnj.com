@@ -9,27 +9,14 @@ const { EleventyHtmlBasePlugin } = require('@11ty/eleventy');
 
 const pluginImages = require('./eleventy.config.images.js');
 
-const postCss = require('postcss');
-const autoprefixer = require('autoprefixer');
-const cssnano = require('cssnano');
-
-const postcssFilter = (cssCode, done) => {
-    const plugins = []
-    postCss([autoprefixer(), cssnano({ preset: 'default' })])
-        .process(cssCode, {
-            from: './public/css/index.css'
-        })
-        .then(
-            (r) => done(null, r.css),
-            (e) => done(e, null)
-        );
-};
+const postcss = require('postcss');
+const postcssrc = require('postcss-load-config');
+const htmlmin = require("html-minifier");
 
 module.exports = function (eleventyConfig) {
-    // Copy the contents of the `public` folder to the output folder
-    // For example, `./public/css/` ends up in `_site/css/`
+    // Copy static files to the output folder
     eleventyConfig.addPassthroughCopy({
-        './public/': '/',
+        './src/static': '/',
     });
     eleventyConfig.addPassthroughCopy('CNAME');
 
@@ -37,10 +24,17 @@ module.exports = function (eleventyConfig) {
     // https://www.11ty.dev/docs/watch-serve/#add-your-own-watch-targets
 
     // Watch content images for the image pipeline.
-    eleventyConfig.addWatchTarget('content/**/*.{svg,webp,png,jpeg}');
+    eleventyConfig.addWatchTarget('src/**/*.{svg,webp,png,jpeg}');
     // Watch changes to static assets
-    eleventyConfig.addWatchTarget('public/');
-    eleventyConfig.addNunjucksAsyncFilter('postcss', postcssFilter);
+    eleventyConfig.addWatchTarget('src/static');
+    eleventyConfig.addNunjucksAsyncFilter('postcss', async (content, callback) => {
+        let { plugins } = await postcssrc();
+        console.log(plugins);
+        let result = await postcss(plugins).process(content, {
+            from: './src/styles/index.css'
+        });
+        callback(null, result.css);
+    });
 
     // App plugins
     eleventyConfig.addPlugin(pluginImages);
@@ -51,12 +45,27 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
     eleventyConfig.addPlugin(pluginBundle);
 
+    eleventyConfig.addTransform("htmlmin", function (content) {
+        // Prior to Eleventy 2.0: use this.outputPath instead
+        if (this.page.outputPath && this.page.outputPath.endsWith(".html")) {
+            let minified = htmlmin.minify(content, {
+                useShortDoctype: true,
+                removeComments: true,
+                collapseWhitespace: true,
+                minifyCSS: true,
+            });
+            return minified;
+        }
+
+        return content;
+    });
+
     // Unofficial plugins
     eleventyConfig.addPlugin(eleventyAutoCacheBuster);
 
     // Add a collection for single-page navigation
     eleventyConfig.addCollection('sections', function(collectionApi) {
-        return sections = collectionApi.getFilteredByGlob('content/sections/*.*');
+        return sections = collectionApi.getFilteredByGlob('src/sections/*.*');
     });
 
     eleventyConfig.addFilter('htmlDateString', (dateObj) => {
@@ -98,10 +107,10 @@ module.exports = function (eleventyConfig) {
 
     // eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
 
+    // Revert back to browser-sync to get true hot reloading for CSS
     eleventyConfig.setServerOptions({
-        liveReload: true,
-        domDiff: true,
-        showVersion: false,
+        module: "@11ty/eleventy-server-browsersync",
+        files: ['_site/styles'],
     });
 
     return {
@@ -117,9 +126,9 @@ module.exports = function (eleventyConfig) {
 
         // These are all optional:
         dir: {
-            input: 'content', // default: "."
-            includes: '../_includes', // default: "_includes"
-            data: '../_data', // default: "_data"
+            input: 'src', // default: "."
+            includes: '_includes', // default: "_includes"
+            data: '_data', // default: "_data"
             output: '_site',
         },
 

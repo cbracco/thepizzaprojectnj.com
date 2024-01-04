@@ -1,0 +1,17 @@
+/* Buttons */
+.button {
+    display: inline-block;
+    padding: var(--space-1) var(--space-3);
+    font-family: var(--font-family-2);
+    letter-spacing: var(--letter-spacing-headings);
+    text-transform: uppercase;
+    background: var(--gold-200);
+    color: var(--black);
+    text-decoration: none;
+    transition: var(--transition-1);
+}
+
+.button:hover,
+.button:focus {
+    background-color: var(--gold-100);
+}

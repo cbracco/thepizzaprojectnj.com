@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="{{ metadata.language }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ title or metadata.title }}</title>
+        <meta name="description" content="{{ description or metadata.description }}">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <meta name="msapplication-TileColor" content="#c2422c">
+        <meta name="theme-color" content="#ffffff">
+        {% if metadata.isProd %}
+        {# Inline CSS on production #}
+        {% set css %}{% include "src/styles/index.css" %}{% endset %}
+        <style>{{ css | postcss | safe }}</style>
+        {% else %}
+        {# Reference external file in dev so hot reloading works #}
+        <link rel="stylesheet" href="/styles/index.min.css">
+        {% endif %}
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ metadata.googleAnalytics }}"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '{{ metadata.googleAnalytics }}');
+        </script>
+    </head>
+    <body>
+        <a href="#skip" class="visually-hidden">Skip to main content</a>
+        {% include "header.njk" %}
+        <main id="skip">
+            {{ content | safe }}
+        </main>
+        <footer></footer>
+        <!-- Current page: {{ page.url | htmlBaseUrl }} -->
+    </body>
+</html>

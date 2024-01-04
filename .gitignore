@@ -2,3 +2,6 @@ _site/
 node_modules/
 .cache
 .env
+
+# Don't commit temporary build files
+src/static/styles

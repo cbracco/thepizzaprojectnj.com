@@ -1,0 +1,30 @@
+/* Variables */
+:root {
+    --beige-100: #FDF9ED;
+    --beige-200: #F3ECD9;
+    --beige-300: #E3DCCA;
+    --gold-100: #F7C24E;
+    --gold-200: #F2BA3E;
+    --black: #2E2A2A;
+    --white: #FFFFFF;
+    --red-100: #C2422C;
+    --font-family-1: opposit, sans-serif;
+    --font-family-2: anton, impact, sans-serif;
+    --letter-spacing-body-text: 0.03em;
+    --letter-spacing-headings: 0.06em;
+    --font-size-base: 1.25rem; /* 20 */
+    --font-size-h1: 3.25rem; /* 52 */
+    --font-size-h2: 2.25rem; /* 36 */
+    --font-size-marquee: 4.5rem; /* 72 */
+    --line-height-base: 1.5;
+    --space-1: 0.75rem; /* 12 */
+    --space-2: 1.5rem; /* 24 */
+    --space-3: 2.25rem; /* 36 */
+    --space-4: 2.75rem; /* 44 */
+    --space-5: 4rem; /* 64 */
+    --space-6: 6.25rem; /* 100 */
+    --space-7: 9rem; /* 144 */
+    --container-width-1: 46.125rem; /* 738 */
+    --marquee-gap: 0.2rem;
+    --transition-1: all 0.3s ease;
+}

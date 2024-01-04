@@ -1,6 +1,6 @@
-<header class="header text-center">
+<header class="header">
     <a href="/" title="{{ metadata.title }}" class="logo">
-        {% image "../public/img/logo.svg", metadata.title %}
+        {% image "static/img/logo.svg", metadata.title %}
     </a>
 
     {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
@@ -18,7 +18,7 @@
     </nav>
 </header>
 
-<div class="marquees">
+<div class="marquee-container">
     <div id="marquee1" class="marquee">
         <div class="marquee-group">
             <span>rustic breads + pizza pies +&nbsp;</span>
@@ -75,7 +75,7 @@
             <span>rustic breads + pizza pies +&nbsp;</span>
         </div>
     </div>
-    <div class="pizza-slice text-center">
-        {% image "../public/img/slice-pesto-white.webp", "Photograph of a delicious pizza slice" %}
+    <div class="marquee-overlay">
+        {% image "static/img/slice-pesto-white.webp", "Photograph of a delicious pizza slice" %}
     </div>
 </div>
