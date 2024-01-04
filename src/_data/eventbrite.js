@@ -1,9 +1,7 @@
 const EleventyFetch = require("@11ty/eleventy-fetch");
 
-// @TODO cache this on the server: https://www.11ty.dev/docs/quicktips/cache-api-requests/
 module.exports = async function() {
     try {
-        // @TODO encrypt API key
         let url = `https://www.eventbriteapi.com/v3/organizations/1905653968833/events/?token=${process.env.EVENTBRITE_API_KEY}&expand=ticket_classes`;
 
         let json = EleventyFetch(url, {
