@@ -7,6 +7,6 @@ module.exports = {
     social: {
         instagram: 'https://instagram.com/braccobreadco',
     },
-    googleAnalytics: 'G-PCVDQSREZ7',
+    googleTagManager: 'GTM-M2Z538HB',
     isProd: process.env.NODE_ENV === 'production',
 };

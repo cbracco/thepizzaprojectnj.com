@@ -1,41 +1,55 @@
 <!doctype html>
 <html lang="{{ metadata.language }}">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{{ title or metadata.title }}</title>
-        <meta name="description" content="{{ description or metadata.description }}">
+        <meta name="description" content="{{ description or metadata.description }}" />
         <meta property="og:title" content="{{ title or metadata.title }}" />
         <meta property="og:description" content="{{ description or metadata.description }}" />
         <meta property="og:image" content="/open-graph.jpg" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
-        <meta name="msapplication-TileColor" content="#c2422c">
-        <meta name="theme-color" content="#ffffff">
-        {% if metadata.isProd %}
-        {# Inline CSS on production #}
-        {% set css %}{% include "src/styles/index.css" %}{% endset %}
-        <style>{{ css | postcss | safe }}</style>
-        {% else %}
-        {# Reference external file in dev so hot reloading works #}
-        <link rel="stylesheet" href="/styles/index.min.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="msapplication-TileColor" content="#c2422c" />
+        <meta name="theme-color" content="#ffffff" />
+        {% if metadata.isProd %} {# Inline CSS on production #} {% set css %}{% include "src/styles/index.css" %}{%
+        endset %}
+        <style>
+            {{ css | postcss | safe }}
+        </style>
+        {% else %} {# Reference external file in dev so hot reloading works #}
+        <link rel="stylesheet" href="/styles/index.min.css" />
         {% endif %}
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id={{ metadata.googleAnalytics }}"></script>
+        <!-- Google Tag Manager -->
         <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '{{ metadata.googleAnalytics }}');
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+                var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s),
+                    dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true;
+                j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', '{{ metadata.googleTagManager }}');
         </script>
+        <!-- End Google Tag Manager -->
     </head>
     <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript
+            ><iframe
+                src="https://www.googletagmanager.com/ns.html?id={{ metadata.googleTagManager }}"
+                height="0"
+                width="0"
+                style="display: none; visibility: hidden"
+            ></iframe
+        ></noscript>
+        <!-- End Google Tag Manager (noscript) -->
         <a href="#skip" class="visually-hidden">Skip to main content</a>
         {% include "header.njk" %}
-        <main id="skip">
-            {{ content | safe }}
-        </main>
+        <main id="skip">{{ content | safe }}</main>
     </body>
 </html>
