@@ -3,7 +3,7 @@ module.exports = {
     url: 'https://braccobreadco.com/',
     language: 'en',
     description:
-        'Rustic breads and pizza pies homebaked in New Jersey. Local pickups, popups, special events, and more.',
+        'Rustic breads and pizza pies baked fresh in New Jersey. Local pickups, popups, mobile catering, special events, and more.',
     social: {
         instagram: 'https://instagram.com/braccobreadco',
     },
