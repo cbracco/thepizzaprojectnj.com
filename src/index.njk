@@ -25,7 +25,7 @@ layout: layouts/base.njk
     <div class="container">
         <h1>Events</h1>
         {% for event in eventbrite.events %} {% if event.status !== "completed" %}
-        <div class="event">
+        <div class="list">
             <h2><a href="{{ event.url }}" target="_blank" rel="noreferrer">{{ event.name.text }}</a></h2>
             <p>
                 {{ event.start.utc | humanizeDate }}
@@ -51,6 +51,17 @@ layout: layouts/base.njk
         <h1>Get on the list</h1>
         <p>Be the first to know about future drops, pop-ups, events, and more.</p>
         {% include "subscribe-form.njk" %}
+    </div>
+</section>
+<section id="press" class="section">
+    <div class="container">
+        <h1>Press</h1>
+        <div class="list">
+            {% for item in press %}
+            <h2><a href="{{ item.url }}">{{ item.title }}</a></h2>
+            <p>By {{ item.author }} | {{ item.date }}</p>
+            {% endfor %}
+        </div>
     </div>
 </section>
 <section id="contact" class="section">

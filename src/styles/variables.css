@@ -12,6 +12,7 @@
     --font-family-2: anton, impact, sans-serif;
     --letter-spacing-body-text: 0.03em;
     --letter-spacing-headings: 0.06em;
+    --font-size-small: 1.125rem; /* 18 */
     --font-size-base: 1.25rem; /* 20 */
     --font-size-h1: 3.25rem; /* 52 */
     --font-size-h2: 2.25rem; /* 36 */

@@ -1,7 +1,7 @@
 /* Content */
 
-/* Events */
-.event:not(:last-child) {
+/* Lists */
+.list:not(:last-child) {
     border-bottom: 1px solid var(--beige-300);
     padding-bottom: var(--space-4);
     margin-bottom: var(--space-4);
