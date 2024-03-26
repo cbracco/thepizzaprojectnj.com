@@ -59,7 +59,7 @@ layout: layouts/base.njk
         <div class="list">
             {% for item in press %}
             <h2><a href="{{ item.url }}">{{ item.title }}</a></h2>
-            <p>By {{ item.author }} | {{ item.date }}</p>
+            <p>{{ item.publication }} | {{ item.date }}</p>
             {% endfor %}
         </div>
     </div>
