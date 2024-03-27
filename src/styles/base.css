@@ -84,10 +84,14 @@ h2 a {
     text-decoration: none;
 }
 
-/* A elements that don't have a class get default styles */
+/* Anchor elements that don't have a class get default styles */
 a:not([class]) {
     text-decoration-skip-ink: auto;
     color: var(--red-100);
+
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 /* Make images easier to work with */
