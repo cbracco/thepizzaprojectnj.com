@@ -24,18 +24,19 @@ layout: layouts/base.njk
 <section id="events" class="section">
     <div class="container">
         <h1>Events</h1>
-        {% for event in eventbrite.events %} {% if event.status !== "completed" %}
+        {% for event in events %} {% if event.status !== "completed" %} {# {{ event | log }} #}
         <div class="list">
             <h2><a href="{{ event.url }}" target="_blank" rel="noreferrer">{{ event.name.text }}</a></h2>
             <p>
-                {{ event.start.utc | humanizeDate }}
+                {{ event.start.local | humanizeDate }}
                 <br />
-                {% for ticket_class in event.ticket_classes %} {{ ticket_class.name }}{% if not loop.last %},{% endif %}
-                {% endfor %}
+                {% if event.ticket_classes %} {% for ticket_class in event.ticket_classes %} {{ ticket_class.name }}{%
+                if not loop.last %},{% endif %} {% endfor %} {% endif %}
             </p>
             <a href="{{ event.url }}" target="_blank" rel="noreferrer" class="button">
-                {% for tix in event.ticket_classes %} {% if loop.first %} {% if tix.free %} More info {% else %} Reserve
-                a seat {% endif %} {% endif %} {% endfor %}
+                {% if event.ticket_classes %} {% for tix in event.ticket_classes %} {% if loop.first %} {% if not
+                tix.free %} Reserve a seat {% else %} More Info {% endif %} {% endif %} {% endfor %} {% else %} More
+                Info {% endif %}
             </a>
         </div>
         {% endif %} {% else %} There are no events scheduled at this time. Check back soon. {% endfor %}
