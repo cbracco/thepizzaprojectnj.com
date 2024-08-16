@@ -24,7 +24,7 @@ layout: layouts/base.njk
 <section id="events" class="section">
     <div class="container">
         <h1>Events</h1>
-        {% for event in events %} {% if event.status !== "completed" %} {# {{ event | log }} #}
+        {% for event in events %}
         <div class="list">
             <h2><a href="{{ event.url }}" target="_blank" rel="noreferrer">{{ event.name.text }}</a></h2>
             <p>
@@ -39,7 +39,7 @@ layout: layouts/base.njk
                 Info {% endif %}
             </a>
         </div>
-        {% endif %} {% else %} There are no events scheduled at this time. Check back soon. {% endfor %}
+        {% else %} There are no events scheduled at this time. Check back soon. {% endfor %}
     </div>
 </section>
 <div class="divider">
