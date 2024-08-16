@@ -29,7 +29,6 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addWatchTarget('src/static');
     eleventyConfig.addNunjucksAsyncFilter('postcss', async (content, callback) => {
         let { plugins } = await postcssrc();
-        console.log(plugins);
         let result = await postcss(plugins).process(content, {
             from: './src/styles/index.css',
         });
@@ -65,7 +64,6 @@ module.exports = function (eleventyConfig) {
 
     // Format times from EventBrite API
     eleventyConfig.addFilter('humanizeDate', (dateObj) => {
-        console.log(dateObj);
         return DateTime.fromISO(dateObj).toLocaleString(DateTime.DATE_FULL); // October, 13, 2023
     });
 
