@@ -16,7 +16,7 @@
 
 .nav-list a {
     font-family: var(--font-family-2);
-    font-size: var(--font-size-small);
+    font-size: var(--font-size-xsmall);
     letter-spacing: var(--letter-spacing-headings);
     text-decoration: none;
     text-transform: uppercase;
