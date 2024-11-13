@@ -1,6 +1,6 @@
-# braccobreadco.com
+# thepizzaprojectnj.com
 
-The source code for the braccobreadco.com website.
+The source code for the thepizzaprojectnj.com website.
 
 -   Eleventy
 -   PostCSS (postcss-preset-env, postcss-import, autoprefixer, cssnano)

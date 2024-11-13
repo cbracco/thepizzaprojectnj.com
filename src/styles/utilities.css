@@ -3,14 +3,6 @@
     text-align: center !important;
 }
 
-.container {
-    max-width: var(--container-width-1);
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 var(--space-2);
-    text-align: center;
-}
-
 .visually-hidden {
     clip: rect(0 0 0 0);
     clip-path: inset(50%);

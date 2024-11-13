@@ -1,22 +1,28 @@
 /* Section */
-
 .section {
-    margin-bottom: var(--space-6);
+    position: relative;
+    text-align: center;
 }
 
-.section h1 {
-    font-size: var(--font-size-h2);
-    margin-bottom: var(--space-2);
+.section .container {
+    padding-top: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
 }
 
-/* 768 */
-@media only screen and (width >= 48rem) {
-    .section {
-        margin-bottom: var(--space-7);
-    }
+.section-divider {
+    display: block;
+    width: 100%;
+    position: relative;
+    line-height: 0;
+}
 
-    .section h1 {
-        font-size: var(--font-size-h1);
-        margin-bottom: var(--space-4);
+.section-divider-top {
+    top: 1px;
+}
+
+@media screen and (width >= 1400px) {
+    .section .container {
+        padding-top: var(--space-3xl);
+        padding-bottom: var(--space-3xl);
     }
 }

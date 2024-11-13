@@ -12,7 +12,7 @@
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        <meta name="msapplication-TileColor" content="#c2422c" />
+        <meta name="msapplication-TileColor" content="#0c6931" />
         <meta name="theme-color" content="#ffffff" />
         {% if metadata.isProd %} {# Inline CSS on production #} {% set css %}{% include "src/styles/index.css" %}{%
         endset %}
@@ -21,7 +21,7 @@
         </style>
         {% else %} {# Reference external file in dev so hot reloading works #}
         <link rel="stylesheet" href="/styles/index.min.css" />
-        {% endif %}
+        {% endif %} {% if metadata.googleTagManager %}
         <!-- Google Tag Manager -->
         <script>
             (function (w, d, s, l, i) {
@@ -36,8 +36,10 @@
             })(window, document, 'script', 'dataLayer', '{{ metadata.googleTagManager }}');
         </script>
         <!-- End Google Tag Manager -->
+        {% endif %}
     </head>
     <body>
+        {% if metadata.googleTagManager %}
         <!-- Google Tag Manager (noscript) -->
         <noscript
             ><iframe
@@ -48,8 +50,8 @@
             ></iframe
         ></noscript>
         <!-- End Google Tag Manager (noscript) -->
+        {% endif %}
         <a href="#skip" class="visually-hidden">Skip to main content</a>
-        {% include "header.njk" %}
-        <main id="skip">{{ content | safe }}</main>
+        <main id="skip" class="main wrapper">{{ content | safe }}</main>
     </body>
 </html>

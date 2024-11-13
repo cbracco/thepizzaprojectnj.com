@@ -43,9 +43,9 @@ ol[role='list'] {
 body {
     min-height: 100vh;
     line-height: var(--line-height-base);
-    background: var(--beige-100);
+    background: var(--white);
     font-family: var(--font-family-1);
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-0);
     letter-spacing: var(--letter-spacing-body-text);
     margin: 0;
     color: var(--black);
@@ -69,15 +69,22 @@ h3,
 h4 {
     text-wrap: balance;
     font-family: var(--font-family-2);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-headings);
     letter-spacing: var(--letter-spacing-headings);
     text-transform: uppercase;
-    margin-bottom: var(--space-1);
+    color: var(--green-100);
+    margin: 0 0 var(--space-xs);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+    font-size: var(--font-size-8);
 }
 
 h2 {
-    font-family: var(--font-family-1);
-    letter-spacing: var(--letter-spacing-body-text);
-    text-transform: none;
+    font-size: var(--font-size-3);
 }
 
 h2 a {
@@ -87,10 +94,11 @@ h2 a {
 /* Anchor elements that don't have a class get default styles */
 a:not([class]) {
     text-decoration-skip-ink: auto;
-    color: var(--red-100);
+    color: var(--gold-100);
+    text-decoration: underline;
 
     &:hover {
-        text-decoration: underline;
+        text-decoration: none;
     }
 }
 
@@ -99,6 +107,7 @@ img,
 picture {
     max-width: 100%;
     height: auto;
+    vertical-align: middle;
 }
 
 /* Inherit fonts for inputs and buttons */
@@ -123,5 +132,5 @@ p,
 ol,
 ul {
     margin-top: 0;
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-m);
 }

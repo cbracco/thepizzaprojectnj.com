@@ -1,7 +1,7 @@
 {
-    "name": "braccobreadco.com",
+    "name": "thepizzaprojectnj.com",
     "version": "1.0.0",
-    "description": "The source code for the braccobreadco.com website.",
+    "description": "The source code for the thepizzaprojectnj.com website.",
     "scripts": {
         "build": "NODE_ENV=production eleventy",
         "clean": "rimraf _site",
@@ -27,7 +27,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/cbracco/braccobreadco.com.git"
+        "url": "git+https://github.com/cbracco/thepizzaprojectnj.com.git"
     },
     "author": {
         "name": "Chris Bracco",
@@ -40,9 +40,9 @@
         "npm": ">=9"
     },
     "bugs": {
-        "url": "https://github.com/cbracco/braccobreadco.com/issues"
+        "url": "https://github.com/cbracco/thepizzaprojectnj.com/issues"
     },
-    "homepage": "https://github.com/cbracco/braccobreadco.com#readme",
+    "homepage": "https://github.com/cbracco/thepizzaprojectnj.com#readme",
     "devDependencies": {
         "@11ty/eleventy": "^2.0.1",
         "@11ty/eleventy-img": "^3.1.1",
@@ -71,8 +71,5 @@
         "rimraf": "^5.0.5",
         "stylelint": "^15.11.0",
         "stylelint-config-standard": "^34.0.0"
-    },
-    "dependencies": {
-        "@11ty/eleventy-fetch": "^4.0.0"
     }
 }

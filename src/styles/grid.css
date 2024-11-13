@@ -1,0 +1,15 @@
+.wrapper {
+    max-width: var(--grid-max-width);
+    margin-inline: auto;
+}
+
+.container {
+    max-width: var(--grid-max-width);
+    padding-inline: var(--space-l);
+    margin-inline: auto;
+}
+
+.grid {
+    display: grid;
+    gap: var(--space-l);
+}

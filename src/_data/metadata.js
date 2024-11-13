@@ -1,12 +1,12 @@
 module.exports = {
-    title: 'Bracco Bread Co.',
-    url: 'https://braccobreadco.com/',
+    title: 'The Pizza Project',
+    url: 'https://thepizzaprojectnj.com/',
     language: 'en',
-    description:
-        'Rustic breads and pizza pies baked fresh in New Jersey. Local pickups, popups, mobile catering, special events, and more.',
+    description: '',
     social: {
-        instagram: 'https://instagram.com/braccobreadco',
+        instagram: 'https://instagram.com/thepizzaprojectnj',
     },
-    googleTagManager: 'GTM-M2Z538HB',
+    googleTagManager: '',
+    preorderUrl: 'https://thepizzaprojectnj.square.site',
     isProd: process.env.NODE_ENV === 'production',
 };

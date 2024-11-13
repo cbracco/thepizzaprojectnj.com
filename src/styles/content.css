@@ -1,14 +1,172 @@
 /* Content */
 
-/* Lists */
-.list:not(:last-child) {
-    border-bottom: 1px solid var(--beige-300);
-    padding-bottom: var(--space-4);
-    margin-bottom: var(--space-4);
+/* Main */
+.main {
+    background: var(--beige-100);
 }
 
-/* Subscribe Form */
-.subscribe-form {
-    display: flex;
-    justify-content: center;
+/* Pizza */
+.pizza-plain,
+.pizza-spinach {
+    display: none;
+}
+
+.pizza-spinach-s {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 25%;
+    margin-top: -25%;
+    text-align: right;
+    z-index: 1;
+}
+
+.pizza-plain-s {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 28%;
+}
+
+/* Hero */
+#hero {
+    position: relative;
+}
+
+#hero a:not([class]) {
+    color: var(--red-100);
+}
+
+.logo {
+    display: inline-block;
+    width: var(--space-5xl);
+    margin-bottom: var(--space-xl);
+}
+
+/* About */
+#about {
+    background: var(--green-100);
+}
+
+#about,
+#about h1 {
+    color: var(--beige-100);
+}
+
+/* Subscribe */
+#subscribe {
+    position: relative;
+    margin-top: calc(var(--space-l) * -1);
+}
+
+#subscribe .section-background {
+    background: var(--red-100);
+}
+
+#subscribe,
+#subscribe h1 {
+    color: var(--beige-100);
+}
+
+#subscribe .subscribe-form {
+    margin-bottom: var(--space-xl);
+}
+
+/* Contact */
+.icon-beaker {
+    margin: var(--space-xl) auto 0;
+    width: var(--font-size-8);
+}
+
+/* Larger devices */
+@media screen and (width >= 700px) {
+    /* Pizza */
+    .pizza-spinach-s,
+    .pizza-plain-s {
+        display: none;
+    }
+
+    .pizza-spinach {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 45%;
+        text-align: right;
+        z-index: 1;
+    }
+
+    .pizza-plain {
+        display: block;
+        position: absolute;
+        top: -10%;
+        right: 80%;
+        z-index: 1;
+    }
+
+    .pizza-plain img {
+        max-width: none;
+    }
+
+    /* Hero */
+    #hero {
+        text-align: left;
+    }
+
+    /* About */
+    #about {
+        text-align: left;
+    }
+
+    #about .container {
+        padding-left: calc(20% + var(--space-2xl));
+    }
+}
+
+@media screen and (width >= 900px) {
+    /* Pizza */
+    .pizza-spinach {
+        width: 50%;
+    }
+}
+
+@media screen and (width >= 1024px) {
+    /* About */
+    #about .container {
+        padding-left: calc(20% + var(--space-3xl));
+        padding-right: var(--space-3xl);
+    }
+}
+
+@media screen and (width >= 1200px) {
+    /* Pizza */
+    .pizza-plain {
+        right: 70%;
+    }
+
+    /* About */
+    #about .container {
+        padding-top: var(--space-5xl);
+        padding-left: calc(30% + var(--space-4xl));
+    }
+}
+
+@media screen and (width >= 1400px) {
+    /* Pizza */
+    .pizza-plain {
+        top: 15%;
+        right: auto;
+        left: 0;
+    }
+
+    /* Hero */
+    #hero .container {
+        padding-left: var(--space-3xl);
+    }
+
+    /* About */
+    #about .container {
+        padding-top: calc(var(--space-5xl) + var(--space-2xl));
+        padding-left: calc(608px + var(--space-3xl));
+    }
 }
