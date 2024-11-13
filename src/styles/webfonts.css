@@ -3,8 +3,8 @@
 @font-face {
     font-family: bayard;
     src:
-        url('/fonts/Bayard-regular.woff2') format('woff2'),
-        url('/fonts/Bayard-regular.woff') format('woff');
+        url('/fonts/Bayard-Regular.woff2') format('woff2'),
+        url('/fonts/Bayard-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
