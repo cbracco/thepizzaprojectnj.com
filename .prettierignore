@@ -4,4 +4,4 @@ _site
 *ignore
 .editorconfig
 CNAME
-src/static/img/
+src/static/
