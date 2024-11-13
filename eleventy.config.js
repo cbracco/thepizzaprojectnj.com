@@ -1,5 +1,4 @@
 require('dotenv').config(); // Make env variables available in 11ty global data
-const { DateTime } = require('luxon');
 const markdownItAnchor = require('markdown-it-anchor');
 const eleventyAutoCacheBuster = require('eleventy-auto-cache-buster');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
@@ -61,11 +60,6 @@ module.exports = function (eleventyConfig) {
 
     // Unofficial plugins
     eleventyConfig.addPlugin(eleventyAutoCacheBuster);
-
-    // Format times from EventBrite API
-    eleventyConfig.addFilter('humanizeDate', (dateObj) => {
-        return DateTime.fromISO(dateObj).toLocaleString(DateTime.DATE_FULL); // October, 13, 2023
-    });
 
     // Customize Markdown library settings:
     eleventyConfig.amendLibrary('md', (mdLib) => {

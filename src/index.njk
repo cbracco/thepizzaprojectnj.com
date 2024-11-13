@@ -2,88 +2,86 @@
 layout: layouts/base.njk
 ---
 
+<section id="hero" class="section">
+    <div class="section-content container">
+        <a href="/" title="{{ metadata.title }}" class="logo"> {% image "static/img/logo.svg", metadata.title %} </a>
+        <h1>Local Bakers.<br />Bold Pizzas.</h1>
+        <p>Currently popping up at <a href="https://montclairbreadco.com">Montclair Bread Company</a>.</p>
+        <a href="{{ metadata.preorderUrl }}" class="button">Pre-Order Online</a>
+    </div>
+    <div class="pizza-spinach-s">{% image "static/img/pizza-spinach-white-pie-small.webp", "" %}</div>
+    <div class="pizza-spinach">{% image "static/img/pizza-spinach-white-pie.webp", "" %}</div>
+</section>
+<div class="section-divider" role="presentation">
+    <img src="/img/section-divider-green.svg" alt="" />
+</div>
 <section id="about" class="section">
+    <div class="pizza-plain">{% image "static/img/pizza-plain.webp", "" %}</div>
     <div class="container">
-        <h1>About</h1>
+        <h1>About Us</h1>
         <p>
-            My name is Chris and I bake small-batch rustic breads and pizza pies in northern New Jersey, USA. What began
-            as a humble hobby has evolved into a ridiculous dough obsession.
+            Founded by Danny Seiden (<a href="https://instagram.com/breadwinepizza">@breadwinepizza</a>), Tony Colasacco
+            (<a href="https://instagram.com/incarbzwetrust">@incarbzwetrust</a>), and Chris Bracco (<a
+                href="https://instagram.com/braccobreadco"
+                >@braccobreadco</a
+            >), The Pizza Project is a pizza pop-up showcase currently hosted on Sundays at Montclair Bread Company in
+            Montclair, New Jersey.
         </p>
         <p>
-            Right now I am honing my craft,
-            <a
-                href="{{ metadata.social.instagram }}"
-                title="Follow @braccobreadco on Instagram"
-                target="_blank"
-                rel="noreferrer"
-                >having fun online</a
-            >, and experimenting with local pickups, pop-ups, mobile catering, special events, and more.
+            What began as an friendly exchange of dough recipes and pizza photos on Instagram quickly grew into a shared
+            dream of bringing their creations to life for the public to enjoy. After helping Chris with his brewery and
+            festival pizza pop-ups in 2024, the trio found themselves energized by each other’s creativity and the
+            possibilities of baking beyond their home kitchens.
+        </p>
+        <p>
+            Now they’re on a mission to scale up their own creations and showcase the talents of other at-home pizza
+            artisans in hopes of building a vibrant community of pizza makers and pizza lovers.
+        </p>
+        <p>
+            What sets The Pizza Project apart is a commitment to creativity, community, and quality, with the goal of
+            inspiring and engaging pizza lovers of all kinds. From crispy sourdough New York-style pies to fluffy
+            Detroit squares to charred New Haven slices and more, each pizza tells a story of technique, flavor, and
+            cultural relevance. To us, there is no greater joy than creating and enjoying a delicious slice of pizza
+            with fellow enthusiasts.
+        </p>
+        <p>
+            Plans are underway for more pop-ups and showcases, as well as dough-making classes, hosting private parties
+            and events, and more. The Pizza Project isn’t just a one-time treat: it’s an invitation to a community
+            pursuing well-crafted pizza. Please join us and follow along for updates!
         </p>
     </div>
 </section>
-<section id="events" class="section">
-    <div class="container">
-        <h1>Events</h1>
-        {% for event in events %}
-        <div class="list">
-            <h2><a href="{{ event.url }}" target="_blank" rel="noreferrer">{{ event.name.text }}</a></h2>
-            <p>
-                {{ event.start.local | humanizeDate }}
-                <br />
-                {% if event.ticket_classes %} {% for ticket_class in event.ticket_classes %} {{ ticket_class.name }}{%
-                if not loop.last %},{% endif %} {% endfor %} {% endif %}
-            </p>
-            <a href="{{ event.url }}" target="_blank" rel="noreferrer" class="button">
-                {% if event.ticket_classes %} {% for tix in event.ticket_classes %} {% if loop.first %} {% if not
-                tix.free %} Reserve a seat {% else %} More Info {% endif %} {% endif %} {% endfor %} {% else %} More
-                Info {% endif %}
+<section id="subscribe" class="section">
+    <img
+        class="section-divider section-divider-top"
+        src="/img/section-divider-red-top.svg"
+        alt=""
+        role="presentation"
+    />
+    <div class="section-background">
+        <div class="container">
+            <h1>Join the Community</h1>
+            <p>Get exclusive discounts, and be the first to know about pop-ups, events, and more.</p>
+            {% include "subscribe-form.njk" %}
+            <a href="{{ metadata.social.instagram }}" class="button button-secondary">
+                <svg class="icon icon-instagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        fill="#f6f3ee"
+                        d="M12,2.2c3.2,0,3.6,0,4.9,0,3.3.1,4.8,1.7,4.9,4.9,0,1.3,0,1.6,0,4.8s0,3.6,0,4.8c-.1,3.2-1.7,4.8-4.9,4.9-1.3,0-1.6,0-4.9,0s-3.6,0-4.8,0c-3.3-.1-4.8-1.7-4.9-4.9,0-1.3,0-1.6,0-4.8s0-3.6,0-4.8c.1-3.2,1.7-4.8,4.9-4.9,1.3,0,1.6,0,4.8,0ZM12,0c-3.3,0-3.7,0-4.9,0C2.7.3.3,2.7,0,7.1,0,8.3,0,8.7,0,12s0,3.7,0,4.9c.2,4.4,2.6,6.8,7,7,1.3,0,1.7,0,4.9,0s3.7,0,4.9,0c4.4-.2,6.8-2.6,7-7,0-1.3,0-1.7,0-4.9s0-3.7,0-4.9c-.2-4.4-2.6-6.8-7-7C15.7,0,15.3,0,12,0ZM12,5.8c-3.4,0-6.2,2.8-6.2,6.2s2.8,6.2,6.2,6.2,6.2-2.8,6.2-6.2-2.8-6.2-6.2-6.2ZM12,16c-2.2,0-4-1.8-4-4s1.8-4,4-4,4,1.8,4,4-1.8,4-4,4ZM18.4,4.2c-.8,0-1.4.6-1.4,1.4s.6,1.4,1.4,1.4,1.4-.6,1.4-1.4-.6-1.4-1.4-1.4Z"
+                    />
+                </svg>
+                Follow on Instagram
             </a>
         </div>
-        {% else %} There are no events scheduled at this time. Check back soon. {% endfor %}
     </div>
 </section>
-<div class="divider">
-    {% image "static/img/pizza-1.webp", null, [1, "auto"], "(max-width: 767px) 1px, 100vw" %} {% image
-    "static/img/pizza-2.webp", "" %} {% image "static/img/pizza-3.webp", "" %} {% image "static/img/pizza-4.webp", "" %}
-    {% image "static/img/pizza-5.webp", null, [1, "auto"], "(max-width: 767px) 1px, 100vw" %}
-</div>
-<section id="subscribe" class="section">
-    <div class="container">
-        <h1>Get on the list</h1>
-        <p>Be the first to know about future drops, pop-ups, events, and more.</p>
-        {% include "subscribe-form.njk" %}
-    </div>
-</section>
-<section id="press" class="section">
-    <div class="container">
-        <h1>Press</h1>
-        <div class="list">
-            {% for item in press %}
-            <h2><a href="{{ item.url }}">{{ item.title }}</a></h2>
-            <p>{{ item.author }} | {{ item.publication }}</p>
-            {% endfor %}
-        </div>
-    </div>
-</section>
+<img class="section-divider" src="/img/section-divider-red-bottom.svg" alt="" role="presentation" />
 <section id="contact" class="section">
     <div class="container">
-        <h1>Contact</h1>
-        <p>
-            Want to try some bread or pizza? Host a pop-up or collaborate? I am open to fun and interesting
-            opportunities.
-        </p>
-        <p>Let’s talk!<br /><a href="mailto:hello@braccobreadco.com">hello@braccobreadco.com</a></p>
-        <a
-            href="{{ metadata.social.instagram }}"
-            title="Follow @braccobreadco on Instagram"
-            target="_blank"
-            rel="noreferrer"
-            >{% image "static/img/instagram.svg", "Bracco Bread Co. on Instagram" %}</a
-        >
+        <h1>Contact Us</h1>
+        <p>Want to get involved? Hosting a private party or event? Get in touch!</p>
+        <h2><a href="mailto:thepizzaprojectnj@gmail.com">thepizzaprojectnj at gmail.com</a></h2>
+        <div class="icon-beaker">{% image "static/img/icon-beaker.svg", "" %}</div>
     </div>
+    <div class="pizza-plain-s">{% image "static/img/pizza-plain-small.webp", "" %}</div>
 </section>
-<div class="divider">
-    {% image "static/img/bread-1.webp", null, [1, "auto"], "(max-width: 767px) 1px, 100vw" %} {% image
-    "static/img/bread-2.webp", "" %} {% image "static/img/bread-3.webp", "" %} {% image "static/img/bread-4.webp", "" %}
-    {% image "static/img/bread-5.webp", null, [1, "auto"], "(max-width: 767px) 1px, 100vw" %}
-</div>
