@@ -7,7 +7,7 @@ module.exports = {
     social: {
         instagram: 'https://instagram.com/thepizzaprojectnj',
     },
-    googleTagManager: '',
+    googleTagManager: 'GTM-M28JJ73T',
     preorderUrl: 'https://thepizzaprojectnj.square.site',
     isProd: process.env.NODE_ENV === 'production',
 };
